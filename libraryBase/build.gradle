@@ -1,0 +1,64 @@
+def c = rootProject.ext
+
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    namespace 'com.hd.libraryBase'
+    compileSdk c.android.compileSdkVersion
+
+    defaultConfig {
+        minSdk c.android.minSdkVersion
+        targetSdk c.android.targetSdkVersion
+        versionCode c.android.versionCode
+        versionName c.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    api c.library.corektx
+    api c.library.appcompat
+    api c.library.material
+    api c.library.constraintlayout
+    api c.local.arouter
+    api c.local.retrofit
+    api c.local.retrofitAdapter
+    api c.local.retrofitGson
+    api c.local.rxjava
+    api c.local.rxAndroid
+    api c.local.fastjson
+    api c.local.autosize
+    api c.local.pickView
+    api c.local.shadowView
+    api c.local.immersionbar
+    api c.local.eventbus
+    api c.local.ToastUtils
+    implementation c.local.okhttp
+    implementation c.local.glide
+    implementation c.local.okhttpLogging
+    testImplementation c.dependencies.junit
+    androidTestImplementation c.dependencies.junittest
+    androidTestImplementation c.dependencies.espressocore
+}

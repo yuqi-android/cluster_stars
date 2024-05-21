@@ -1,0 +1,52 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '8.1.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'com.android.library' version '8.1.0' apply false
+}
+
+ext {
+    isDebug = true
+
+    android = [
+            // 编译 SDK 版本
+            compileSdkVersion: 33,
+            // 最低兼容 Android 版本
+            minSdkVersion    : 26,
+            // 最高兼容 Android 版本
+            targetSdkVersion : 31,
+            // 当前版本编号
+            versionCode      : 1,
+            // 当前版本信息
+            versionName      : "1.0.0"]
+
+
+    dependencies = [junit       : 'junit:junit:4.13.2',
+                    junittest   : 'androidx.test.ext:junit:1.1.5',
+                    espressocore: 'androidx.test.espresso:espresso-core:3.5.1',]
+    library = [corektx         : 'androidx.core:core-ktx:1.9.0',
+               appcompat       : 'androidx.appcompat:appcompat:1.6.1',
+               material        : 'com.google.android.material:material:1.8.0',
+               constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.4',
+
+    ]
+    local = [glide          : 'com.github.bumptech.glide:glide:4.16.0',
+             arouter        : 'com.alibaba:arouter-api:1.5.2',
+             retrofit       : 'com.squareup.retrofit2:retrofit:2.9.0',
+             retrofitAdapter: 'com.squareup.retrofit2:adapter-rxjava3:2.9.0',
+             retrofitGson   : 'com.squareup.retrofit2:converter-gson:2.9.0',
+             rxjava         : 'io.reactivex.rxjava3:rxjava:3.1.8',
+             rxAndroid      : 'io.reactivex.rxjava3:rxandroid:3.0.2',
+             okhttp         : 'com.squareup.okhttp3:okhttp:3.1.2',
+             okhttpLogging  : 'com.squareup.okhttp3:logging-interceptor:4.2.2',
+             autosize       : 'me.jessyan:autosize:1.2.1',
+             fastjson       : 'com.alibaba:fastjson:1.1.70.android',
+             pickView       : 'com.contrarywind:Android-PickerView:4.1.9',
+             shadowView     : 'com.github.FlyJingFish:ShadowLayout:1.0.4',
+             immersionbar   : 'com.gyf.immersionbar:immersionbar:3.0.0',
+             eventbus       : 'org.greenrobot:eventbus:3.3.1',
+             ToastUtils     : 'com.github.getActivity:ToastUtils:10.5'
+    ]
+
+
+}
